@@ -1,0 +1,10 @@
+#!/bin/sh
+
+path='/Users/shinny/vBOXVMs/'
+
+printf "virtual machine lists\n-------------------------------\n"
+
+for vms in `ls ${path}`
+do
+    echo ${vms}
+done
