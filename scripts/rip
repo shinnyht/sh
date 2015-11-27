@@ -6,10 +6,10 @@ fs01="/dev/disk/by-label/fs01"
 for medianame in ${MEDIA_PATH}
 do
     if [ ${medianame} != ${fs01} ]; then
-        filename=${medianame##*/}.iso
-        dd if=/dev/sr0 bs=2048 | pv | dd of=/mnt/fs01/media/new/${filename} bs=2048
+        filename=/mnt/fs01/media/new/${medianame##*/}.iso
+        dd if=/dev/sr0 bs=2048 | pv | dd of=${filename} bs=2048
 
-        chown shinny ${filename}
+        chown shinny:wheel ${filename}
     fi
 done
 
