@@ -1,0 +1,3 @@
+#!/bin/sh
+
+rsync -avz /mnt/fs01/ /mnt/fs02

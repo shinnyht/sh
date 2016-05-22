@@ -1,0 +1,17 @@
+#!/bin/sh
+
+MEDIA_PATH="/dev/disk/by-label/*"
+fs01="/dev/disk/by-label/fs01"
+fs02="/dev/disk/by-label/fs02"
+
+for medianame in ${MEDIA_PATH}
+do
+    if [ ${medianame} != ${fs01} -a ${medianame} != ${fs02} ]; then
+        filename=/mnt/fs01/media/new/${medianame##*/}.iso
+        dd if=/dev/sr0 bs=2048 | pv | dd of=${filename} bs=2048
+
+        chown shinny:wheel ${filename}
+    fi
+done
+
+eject
