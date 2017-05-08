@@ -9,22 +9,22 @@ for i in `seq 1 $#`
 do
     if [ ${targets[$i-1]} = "video" ]; then
         echo "start synching ${targets[$i-1]}"
-        tsync -avz /mnt/fs01/media/video /mnt/backup/media
+        tsync -avz --delete /mnt/fs01/media/video /mnt/backup/media
     elif [ ${targets[$i-1]} = "anime" ]; then
         echo "start synching ${targets[$i-1]}"
-        tsync -avz /mnt/fs01/media/anime /mnt/backup/media
+        tsync -avz --delete /mnt/fs01/media/anime /mnt/backup/media
     elif [ ${targets[$i-1]} = "drama" ]; then
         echo "start synching ${targets[$i-1]}"
-        tsync -avz /mnt/fs01/media/drama /mnt/backup/media
+        tsync -avz --delete /mnt/fs01/media/drama /mnt/backup/media
     elif [ ${targets[$i-1]} = "music" ]; then
         echo "start synching ${targets[$i-1]}"
-        tsync -avz /mnt/fs01/Music/ /mnt/backup/Music
+        tsync -avz --delete /mnt/fs01/Music/ /mnt/backup/Music
     elif [ ${targets[$i-1]} = "all" ]; then
         echo "start synching ${targets[$i-1]}"
-        tsync -avz /mnt/fs01/video /mnt/backup/media
-        tsync -avz /mnt/fs01/anime /mnt/backup/media
-        tsync -avz /mnt/fs01/drama /mnt/backup/media
-        tsync -avz /mnt/fs01/Music/ /mnt/backup/Music
+        tsync -avz --delete /mnt/fs01/media/video /mnt/backup/media
+        tsync -avz --delete /mnt/fs01/media/anime /mnt/backup/media
+        tsync -avz --delete /mnt/fs01/media/drama /mnt/backup/media
+        tsync -avz --delete /mnt/fs01/Music/ /mnt/backup/Music
     else
         echo "give right target to sync"
     fi
