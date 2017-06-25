@@ -2,7 +2,7 @@
 
 MEDIA_PATH="/dev/disk/by-label/*"
 fs01="/dev/disk/by-label/fs01"
-fs02="/dev/disk/by-label/fs02"
+fs02="/dev/disk/by-label/backup"
 
 for medianame in ${MEDIA_PATH}
 do
@@ -10,7 +10,7 @@ do
         filename=/mnt/fs01/media/new/${medianame##*/}.iso
         dd if=/dev/sr0 bs=2048 | pv | dd of=${filename} bs=2048
 
-        chown shinny:wheel ${filename}
+        chown shinny:shinny ${filename}
     fi
 done
 
