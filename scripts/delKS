@@ -1,0 +1,29 @@
+#!/bin/bash
+
+(
+IFS=$'\n';
+for target in `find $1 -name "._*"`
+do
+  echo delete ${target}
+  rm ${target}
+done
+)
+
+(
+IFS=$'\n';
+for target in `find $1 -name "desktop.ini"`
+do
+  echo delete ${target}
+  rm ${target}
+done
+)
+
+(
+IFS=$'\n';
+for target in `find $1 -name "*DS_Store"`
+do
+  echo delete ${target}
+  rm ${target}
+done
+)
+
